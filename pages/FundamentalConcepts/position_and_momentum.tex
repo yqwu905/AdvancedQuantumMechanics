@@ -1,0 +1,36 @@
+\subsection{Position and Momentum}
+
+我们考虑一个空间变换$Q:r\to r^\prime = Qr$, 显然的, 位置变换导致的态函数的变换为:
+
+ \begin{equation}
+  \begin{aligned}
+    \psi^{\prime}({\bf r}) = D(Q) \psi({\bf r}) = \psi(Q^{-1} {\bf r})
+  \end{aligned}
+\end{equation}
+
+现在我们将空间变换$Q$ 限定为一个无穷小平移: $Qr = r+\dd r$, 那么我们有:
+
+\begin{equation}
+  \begin{aligned}
+    \psi^{\prime}({\bf r}) &= D(\dd {\bf r}) \psi({\bf r}) = \psi(Q^{-1} {\bf r}) = \psi({\bf r} - \dd {\bf r}) \\
+    &= \psi({\bf r}) - \dd {\bf r} \nabla \psi({\bf r}) = \left(1 - \frac{{\rm i}}{\hbar}\dd {\bf r} {\bf \hat{P}}\right)\psi({\bf r})
+  \end{aligned}
+\end{equation}
+
+即平移群的生成元为:
+
+\begin{equation}
+  \begin{aligned}
+    \hat{D}(\dd{\bf r}) = 1 - \frac{{\rm i}}{\hbar}\dd {\bf r} {\bf \hat{P}}
+  \end{aligned}
+\end{equation}
+
+那么, 有限平移$D({\bf r})$ :
+
+\begin{equation}
+  \begin{aligned}
+    \hat{D}({\bf r}) = \lim_{n\to \infty} \left(1 - \frac{{\rm i}}{\hbar} \frac{{\bf r}}{n} {\bf \hat{P}}\right)^{n} = \exp \left(- \frac{{\rm i}}{\hbar}{\bf r}{\bf \hat{P}}\right)
+  \end{aligned}
+\end{equation}
+
+明显的, 动量算符 $\hat{P}$ 是平移变换的生成元.

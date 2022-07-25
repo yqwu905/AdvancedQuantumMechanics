@@ -1,0 +1,30 @@
+kind: pipeline
+type: docker
+name: latex
+steps:
+  - name: Build
+    image: texlive/texlive
+    commands:
+      - latexmk -xelatex main.tex
+
+  - name: release
+    image: alpine
+    volumes:
+      - name: token
+        path: /root/gitea-token
+    commands:
+      - export token=`cat /root/gitea-token/token`
+      - echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+      - export tag=`date +"%y%m%d%H%M"`
+      - apk add tea@testing
+      - tea login add --name pingline --url https://git.yqwu.site --token $token
+      - tea release create --tag $${tag} --title "Auto Compile" --note "This PDF is generate automatically by CI/CD." -a main.pdf --repo AdvancedQuantumMechanics
+
+trigger:
+  branch:
+    - master
+
+volumes:
+  - name: token
+    host:
+      path: /data/drone/mount/gitea-token/

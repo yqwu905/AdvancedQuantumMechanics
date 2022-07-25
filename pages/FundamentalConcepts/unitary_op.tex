@@ -1,0 +1,88 @@
+\subsection{Unitary Operator}
+
+\begin{definition}{\bf 幺正算符}
+  若算符$U$ 满足:
+
+  \begin{equation}
+    \begin{aligned}
+      U^{\dagger} U = U U^{\dagger} = I
+    \end{aligned}
+  \end{equation}
+
+  则称$U$ 为幺正算符.
+\end{definition}
+
+\begin{theorem}{\bf 幺正算符的性质}
+  \begin{enumerate}
+    \item 设 $A,B$ 均为幺正算符, 则$AB$ 也为幺正算符.
+    \item 若$\{\ket{v_{i}}\}$是Hilbert空间中的一组基矢, 那么$\{U\ket{v_{i}}\}$也是.
+    \item $\forall \{\ket{v_{i}}\},\{\ket{u_{i}}\}$是Hilbert空间的基矢, 则$\exists U$ 为幺正
+      算符, 使$\ket{v_{i}} = U \ket{u_{i}}$
+    \item 有物理意义的幺正算符往往可以构成一个{\bf 李群}$U(t)$, 而$U(t)$ 可以由厄密算符生成.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  性质1-3易证.\\
+  对于性质4, 考虑极限:
+  \begin{equation}
+    \begin{aligned}
+      \lim_{\epsilon\to 0} U(\epsilon) = I + {\rm i}\epsilon F
+    \end{aligned}
+  \end{equation}
+
+  利用$UU^{\dagger}=I$:
+
+  \begin{equation}
+    \begin{aligned}
+      UU^{\dagger} = I + {\rm i}\epsilon(F - F^{\dagger}) - \epsilon^{2}FF^{\dagger} = I
+    \end{aligned}
+  \end{equation}
+
+  略去高阶无穷小, 得到:
+
+  \begin{equation}
+    \begin{aligned}
+      F = F^{\dagger}
+    \end{aligned}
+  \end{equation}
+\end{proof}
+
+进一步的, 如果$U(t)$ 的生成元$F$ 是时间无关的, 那么可以发现:\sn{这可以通过将$U(t+\dd t)$写成
+$U(t)U(\dd t) = U(t) + {\rm i}U(t) \dd t F$ 和$U(t) + \dd t (\dd U / \dd t)$, 比较得到}
+
+\begin{equation}
+  \begin{aligned}
+    \dv{U}{t} = {\rm i} F U(t)
+  \end{aligned}
+\end{equation}
+
+即:
+
+\begin{equation}
+  \begin{aligned}
+    U(t) = \exp({\rm i} F t)
+  \end{aligned}
+\end{equation}
+
+\begin{remark}
+  对于某特殊体系\mn{这里特殊体系是指给定哈密顿算符$H$}, 如果其在幺正算符$U$ 的作用下保持不变:
+
+  \begin{equation}
+    \begin{aligned}
+      UHU^{-1} = H
+    \end{aligned}
+  \end{equation}
+
+  那么立刻就有$H$ 和$U$ 对易, 若 $U$ 的生成元$F$ 不含时, 那么我们立刻得知$[F,H]=0$. 同时由于
+   $F$ 不含时, 我们还有:
+
+   \begin{equation}
+     \begin{aligned}
+       \dv{F}{t} = \pdv{F}{t} + [F, H] = 0
+     \end{aligned}
+   \end{equation}
+
+   即该幺正变换的生成元是守恒量, 这正和我们经典力学中Noether定理相符.
+
+\end{remark}
