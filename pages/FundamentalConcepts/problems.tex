@@ -1,25 +1,21 @@
 \subsection*{Problems}
 
-\begin{exercise}[1.1]
-  \begin{equation}
-    \begin{aligned}
-      {\rm LHS} = ABCD - CDAB
-    \end{aligned}
-  \end{equation}
-  \begin{equation}
-    \begin{aligned}
-      {\rm RHS} &= -ACDB - ACBD + ACBD + ABCD \\
-                & - CDAB - CADB + CADB + ACDB \\
-                &= ABCD - CDAB
-    \end{aligned}
-  \end{equation}
-  Q.E.D
-\end{exercise}
 
-\begin{exercise}[1.2]
+\begin{exercise}{求$\left[ {\bf p}^{2}, \frac{1}{r}\right]$}
+
   \begin{equation}
     \begin{aligned}
-      \Tr(x) = a_0 + 
+      \left[ {\bf p}^{2}, \frac{1}{r} \right]\psi &= {\rm i} \hbar \left(\frac{1}{r^{3}} {\bf r}\cdot {\bf p} + {\bf p}\cdot \frac{{\bf r}}{r^{3}}\right)\psi\\
+                                                  &= {\rm i}\hbar \frac{{\bf r}}{r^{3}}(- {\rm i} \hbar \nabla \psi) + {\rm i}\hbar \left[- {\rm i} \hbar \nabla\cdot \left(\frac{{\bf r}}{r^{3}} \psi\right)\right]\\
+                                                  &= 2 {\rm i} \hbar \frac{{\bf r}}{r^{3}} (- {\rm i} \hbar \nabla \psi) + \hbar^{2} \psi\nabla \cdot \frac{{\bf r}}{r^{3}}
     \end{aligned}
   \end{equation}
+
+  即：
+  \begin{equation}
+    \begin{aligned}
+      \left[{\bf p}^{2}, \frac{1}{r}\right] = 2 {\rm i} \hbar \frac{{\bf r}}{r^{3}}\cdot {\bf p} + \hbar^{2} \nabla\cdot \frac{{\bf r}}{r^{3}}
+    \end{aligned}
+  \end{equation}
+  
 \end{exercise}
