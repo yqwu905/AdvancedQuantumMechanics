@@ -1,0 +1,59 @@
+\section{Propagators and Feynman Path Integrals}
+
+\begin{definition}{\bf 传播子}
+  传播子就是时间演化算符$U(t'; t)$的坐标矩阵元:
+  \begin{equation}
+    \begin{aligned}
+      K(x'', t; x', t') = \bra{x''} U(t'; t) \ket{x'}
+    \end{aligned}
+  \end{equation}
+\end{definition}
+
+不难验证, 传播子是态运动方程的{\bf Green函数}:
+
+\begin{equation}
+  \begin{aligned}
+    (- {\rm i} \hbar \pdv{}{t} - \left(\frac{\hbar^{2}}{2m}\right)\nabla_{x''}^{2} + V(x''))K(x'', t; x', t') = - {\rm i} \hbar \delta(x''-x') \delta(t-t')
+  \end{aligned}
+\end{equation}
+
+在我们继续深入之前, 不妨来讨论这样一个问题: 对于某个体系在 $t'$ 时处于态$\ket{\alpha}$,
+我们希望求在$t$ 时处于态$\ket{\beta}$ 的概率, 显然, 这一概率$|A|^{2}$ 为:
+
+\begin{equation}
+  \begin{aligned}
+    A = \bra{\beta}\ket{\alpha, t';t} = \bra{\beta}U(t'; t) \ket{\alpha}
+  \end{aligned}
+\end{equation}
+
+而你应当立刻发现, 利用上面的结果, 传播子描述了从$(x', t')$ 跃迁到$(x'', t)$ 的概率振幅.
+传播子的这一物理意义让我们联想到, 对于一个从$\ket{\alpha}$ 到$\ket{\gamma}$的跃迁概率,
+其应当等于从$\ket{\alpha}$ 跃迁到任意中间态$\ket{\beta}$, 之后再从$\ket{\beta}$ 跃迁
+到$\ket{\gamma}$ 的概率的求和, 对于传播子, 我们有\sn{不管如何理解, 我们数学上做得仅是利用了一次基矢的完全性条件.}
+\sn{这里我为了方便采用了简写, $\bra{x'', t''}\ket{x', t'} = \bra{x''}U(t'', t')\ket{x'}$}
+\begin{equation}
+  \begin{aligned}
+    \bra{x''', t'''}\ket{x', t'} = \int \dd x'' \bra{x''', t'''}\ket{x'', t''}\bra{x'', t''} \ket{x', t'}
+  \end{aligned}
+\end{equation}
+
+进一步的, 如果我们将这一过程无限细分, 那么就得到了所谓的{\bf 路径积分}的想法:
+\emph{我们实际上遍历了所有可能的路径}.
+
+Feynman在此之上将传播子和经典力学的作用量联系起来:
+
+\begin{equation}
+  \begin{aligned}
+    \bra{x_{N}, t _{N}}\ket{x_1, t_1} = \int _{x_1}^{x_N} \mathcal{D}[x(t)] \exp \left[{\rm i} \frac{S}{\hbar}\right]
+  \end{aligned}
+\end{equation}
+
+\begin{remark}
+  这一说法看起来完全推翻了最小作用量原理, 但是你需要注意到, 和经典情况不同,
+  尽管我们对于所有可能的路径等权求和, 但传播子事实上是作为一个相位因子出现,
+  这意味着不同路径的贡献之间{\bf 存在干涉}. 一般来说, $\delta S\geq \hbar$,
+  因此两条相邻轨道之间相消的很厉害, 而在经典轨道处, $\delta S=0$, 相邻轨道
+  具有相同的相位, 因此贡献会相互叠加.
+\end{remark}
+
+同样可以验证的是, Feynman的路径积分理论和波动力学完全等价.

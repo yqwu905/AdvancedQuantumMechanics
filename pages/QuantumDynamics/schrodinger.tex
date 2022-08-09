@@ -1,0 +1,36 @@
+\section{Schr\"odinger Equation}
+
+现在我们在Schr\"odinger绘景, 位置表象下讨论态$\ket{\alpha, t_0; t}$ 的演化. 对于
+单个粒子的情况, 其Hamiltonian为:
+
+\begin{equation}\label{eq:hamiltonian}
+  \begin{aligned}
+    H = \frac{P^{2}}{2m} + V(x)
+  \end{aligned}
+\end{equation}
+
+其中位势$V(x)$ 也是一个算符, 其作用仅为:
+
+\begin{equation}
+  \begin{aligned}
+    V(x)\ket{x_1} = V(x_1) \ket{x_1}
+  \end{aligned}
+\end{equation}
+
+之后简单的将右矢在Schr\"odinger绘景下的演化方程:
+
+\begin{equation}
+  \begin{aligned}
+    {\rm i} \hbar \pdv{}{t} \ket{\alpha, t_0; t} = H \ket{\alpha, t_0; t}
+  \end{aligned}
+\end{equation} 
+
+代入\ref{eq:hamiltonian}, 并在$x$ 表象下展开, 我们可以得到:
+
+\begin{equation}
+  \begin{aligned}
+    {\rm i}\hbar \pdv{}{t} \psi(x, t) = - \left(\frac{\hbar^{2}}{2m}\right) \nabla^{2} \psi(x, t) + V(x) \psi(x,t)
+  \end{aligned}
+\end{equation}
+
+上式即为波函数的Schr\"odinger方程. 之后都是一些我们熟悉的内容.

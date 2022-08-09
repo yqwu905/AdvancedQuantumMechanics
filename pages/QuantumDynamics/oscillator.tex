@@ -1,0 +1,81 @@
+\subsection{Oscillator}
+
+\begin{equation}
+  \begin{aligned}
+    H = \frac{p^{2}}{2m} + \frac{m \omega^{2} x^{2}}{2}
+  \end{aligned}
+\end{equation}
+
+定义{\bf 湮灭}$a^{\dagger}$和{\bf 湮灭算符}$a$:
+
+\begin{equation}
+  \begin{aligned}
+    a = \sqrt{\frac{m \omega}{2 \hbar}} \left( x + \frac{{\rm i} p}{m \omega} \right),\quad a^{\dagger} = \sqrt{\frac{m \omega}{2 \hbar}} \left( x - \frac{{\rm i} p}{m \omega} \right)
+  \end{aligned}
+\end{equation}
+
+以及进一步的, 粒子数算符:\sn{尽管到现在我们并没有谈论二次量子化相关的内容, 但是这里的粒子数算符
+和二次量子化中的粒子数算符出现了对应, 事实上这里的粒子数算符描述的是元激发的声子.}
+
+\begin{equation}
+  \begin{aligned}
+    N = a^{\dagger}a
+  \end{aligned}
+\end{equation}
+
+进一步, 我们发现存在如下关系:\sn{第二个关系可以很明显的看出了粒子数算符的物理意义.}
+
+\begin{equation}
+  \begin{aligned}
+    &[a, a^{\dagger}] = 1 \\
+    &H = \hbar \omega \left( N + \frac{1}{2} \right)
+  \end{aligned}
+\end{equation}
+
+由于 $[N, H]=0$, 因此我们使用粒子数算符的本征态$\ket{n}$ 来表示各个能量基态, 而当产生/湮灭算符作用在这些
+基态上时, 我们发现:
+
+\begin{equation}
+  \begin{aligned}
+    &N a^{\dagger} \ket{n} = (n+1) a^{\dagger} \ket{n}\\
+    &N a \ket{n} = (n-1) a \ket{n}
+  \end{aligned}
+\end{equation}
+
+进一步的, 我们可以利用$N = a^{\dagger}a$ 的定义, 得到:
+
+\begin{equation}
+  \begin{aligned}
+    a^{\dagger} \ket{n} = \sqrt{n+1} \ket{n+1},\quad a \ket{n} = \sqrt{n} \ket{n-1}
+  \end{aligned}
+\end{equation}
+
+另外, 注意到$H$ 和$N$ 的关系, 由于谐振子的能量是非负的, 因此粒子数本征态存在一个
+最小极限 $\ket{0}$\sn{对应于最低能态$E = \frac{1}{2}\hbar \omega$}, 湮灭算符作用在上面仍然得到其自身.
+
+之后, 在粒子数表象下, 我们可以进一步的研究动量/位置算符在该表象下的表示等等.
+
+\begin{remark}
+  量子的不确定性关系导致了谐振子基态能量不为0: 不存在小球处在原点同时速度为0的
+  情况.
+\end{remark}
+
+下面来研究谐振子的动力学, 我们将采用Heisenberg绘景. 大多数结论都可以直接利用
+Heisenberg绘景下的动力学方程直接导出. 一种不同的做法是, 利用Baker-Hausdorff引理
+\sn{参见喀书\$2-2, 例2}. 我们可以验证:
+
+\begin{equation}
+  \begin{aligned}
+    &X(t) = X(0) \cos \omega t + \left[ \frac{P(0)}{m \omega} \right] \sin \omega t\\
+    &P(t) = - m \omega X(0) \sin \omega t + P(0) \cos \omega t
+  \end{aligned}
+\end{equation}
+
+注意, 我们是在Heisenberg绘景下讨论, 虽然类似于经典图像下的谐振子的振动行为,
+但是描述的是{\bf 算符的演化}. 这里并不存在对应于经典图像下谐振子中的小球的物理
+实体, 我们能观测到的只有某个态对于$X(t)$ 和$P(t)$ 的期望值. 但是对于一个定态,
+我们不难发现, 由于 $X(0)$ 和$P(0)$ 均可以表示成$a^{\dagger}+a$或$a - a^{\dagger}$,
+因此期望值$\bra{n}X(0)\ket{n}$ 和$\bra{n}P(0)\ket{n}$ 均为0. 
+
+要想切实观察到坐标和动量的期待值发生变换, 我们需要观察一些由相邻能级的能量本征态
+线性组合构成的叠加态, 这样在升降阶之后左右矢中才可能存在相同的基矢.
