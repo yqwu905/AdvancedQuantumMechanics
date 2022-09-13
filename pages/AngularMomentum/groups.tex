@@ -1,0 +1,61 @@
+\subsection{SO(3) and SU(2) group}
+
+一些我们可能会用到的群:
+
+\begin{itemize}
+  \item ${\rm GL}(n, \mathbb{F})$, General Linear Group, 数域$\mathbb{F}$ 上任意有逆的$n\times n$ 矩阵构成的群.
+  \item ${\rm O}(n)$, Orthogonal Group, 对应于$n\times n$ 正交矩阵, 满足$\forall Q\in {\rm O}(n), \det Q = \pm 1$.
+  \item ${\rm SO}(n)$, Sepcial Orthogonal Group, ${\rm O}(n)$ 群中行列式为 $+1$ 的元素构成的子群.
+  \item ${\rm U}(n)$, Unitary Group, $n\times n$ 的幺正矩阵.
+  \item ${\rm SU}(n)$, Special Unitary Group, ${\rm U}(n)$ 群中行列式为$+1$ 的元素构成的群.
+\end{itemize}
+
+\begin{remark}
+  讨论一下${\rm SO}(n)$ 群特殊/正当在哪. 首先不难看出, 由于${\rm O}(n)$ 的恒等元 $E$ 满足
+  $\det E = 1$,  并且对于$\forall Q_1, Q_2\in {\rm SO}(n), \det Q_1 = \det Q_2 = -1$,
+  有$\det(Q_1 Q_2) = +1$, 因此${\rm O}(n)$中满足$\det Q=-1$ 的元素无法构成子群. 另外
+  我们一般将${\rm SO}(3)$ 群看作是转动群, 注意到空间反演算符$P \vec{r} \to -\vec{r}$,
+  可以看出$P = -I, \det P = 1$, 因此我们可以利用空间反演算符在正当转动和非正当转动
+  中构建同构: \emph{在${\rm O}(3)$ 群中, 非正当转动等于正当转动后再进行一次空间反演,反之亦然}.
+  这也解释了为什么我们不用${\rm O}(3)$ 群而使用${\rm SO}(3)$ 群: 空间反演和空间转动是不同的对称性.
+\end{remark}
+
+而在前面, 通过对Spin $\frac{1}{2}$ 系统的讨论, 我们看到了可以将旋转算符写成一个
+$2\times 2$ 的复矩阵的形式, 并且注意到式(3.2.45), 这是一个幺正矩阵, 进一步还满足
+行列式等于$+1$. 这给予我们一个启发: 转动也可以通过${\rm SU}(2)$ 群来表示.
+
+那么很自然的, 我们希望比较${\rm SO}(3)$ 和${\rm SU}(2)$ 的关系, 我们早已知道结论:
+\emph{存在一个从${\rm SU}(2)$ 到${\rm SO}(3)$ 的$2$ 对$1$ 的同态}. Sakurai和喀兴林上
+给出的计算证明已经足够充足, 这里我们给出一个Lie群流形上的理解:
+
+\begin{remark}
+  不难看出的是, 对于${\rm SU}(2)$ 群, 我们可以看出其的Lie流形是$S_3$.
+  这是因为一个${\rm SU}(2)$ 的群元一定可以写为:
+
+  \begin{equation}
+    \begin{aligned}
+      u =
+      \begin{pmatrix}
+        x_1 + {\rm i} x_2 & x_3 + {\rm i} x_4 \\
+        -x_3 + {\rm i} x_4 & x_1 - {\rm i} x_2
+      \end{pmatrix}
+    \end{aligned}
+  \end{equation}
+
+  而$\det u=1$ 给出:
+  
+  \begin{equation}
+    \begin{aligned}
+      x_1^{2} + x_2^{2} + x_3^{2} + x_4^{2} = 1
+    \end{aligned}
+  \end{equation}
+
+  这正是$S_3$ 球面. 而对于${\rm SO}(3)$, 由于可以用三维转动角来进行参数化, 因此
+  可以很自然的和$S_3$ 球面联系起来. 但是注意到, ${\rm SO}(3)$ 流形上需要对认同,
+  这是由于顺时针转$\pi$ 角和逆时针转$\pi$ 角完全相同. 因此${\rm SO}(3)$ 的Lie流形
+  实际上是射影空间${\rm \mathbb{R}P}_3$. 因此, 不难看出${\rm SO}(3)$ 是${\rm SU}(2)$ 
+  将对径点视作等价类得到的商空间.
+
+\end{remark}
+
+

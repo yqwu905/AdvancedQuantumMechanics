@@ -1,0 +1,163 @@
+\subsection{纯态, 混合态与密度算符}
+
+迄今为止, 我们讨论的态都是Hilbert空间中的态, 这样的态我们称之为 {\bf 纯态}, 但一些
+更复杂的情况下, 物理系统的态可能分别以$p_1, p_2, \cdots, p_{n}$的概率处于态$\ket{a_1}$, $\ket{a_2}$,$\cdots$, $\ket{a_{n}}$,
+这样的情况我们称之为{\bf 混合态}, 记作:
+
+\begin{equation}
+  \left\{
+    \begin{aligned}
+      &\ket{a_1}: p_1 \\
+      &\ket{a_2}: p_2 \\
+      &\cdots \\
+      &\ket{a_n}: p_{n}
+    \end{aligned}
+  \right.
+\end{equation}
+
+\begin{remark}
+  请注意区分纯态$c_1\ket{a_1} + c_2\ket{a_2}+\cdots+c_{n}\ket{a_{n}}$与上面的混合态,
+  即使$|c_{i}|^{2} = p_{i}$. 这一点可以通过讨论另一个力学量$B$ 的期望看出.
+  假设$B$ 的本征矢量为$\ket{b_i}$, 那么对于纯态$\ket{\alpha}$,  $B$ 取$b_{i}$ 的概率为:
+  
+  \begin{equation}
+    \begin{aligned}
+      |\bra{b_{i}}\ket{\alpha}|^{2} = |\bra{b_{i}}\ket{a_1}c_1 + \bra{b_{i}}\ket{a_2}c_2 + \cdots + \bra{b_{i}}\ket{a_{n}}c_{n}|^{2}
+    \end{aligned}
+  \end{equation}
+
+  而对于混合态$\ket{\beta}$, B取$b_{i}$的概率为:
+
+  \begin{equation}
+    \begin{aligned}
+      \sum_{j}^{n} p_{j} |\bra{b_{i}}\ket{a_{j}}|^{2}
+    \end{aligned}
+  \end{equation}
+
+  可以看出, 对于纯态, 发生的是概率幅之间的\emph{相干叠加}, 而混合态则是概率的\emph{不相干叠加}
+\end{remark}
+
+我们希望找到一种既能描述混合态也能描述纯态的数学量, 这使得我们引入了密度算符:
+
+\begin{equation}
+  \begin{aligned}
+    \rho = \sum_{i} p_{i} \ket{a_{i}}\bra{a_{i}}
+  \end{aligned}
+\end{equation}
+
+不难看出, 对于混合态, 任意力学量$A$ 的期望值为:
+
+\begin{equation}
+  \begin{aligned}
+    \langle A\rangle = \sum_{i} \bra{i}A \rho \ket{i} = {\rm tr} \;A \rho
+  \end{aligned}
+\end{equation}
+
+由于迹与表象无关, 因此上式中的基矢$\ket{i}$ 可以任意选取.
+
+\begin{theorem}
+  密度算符 $\rho$ 是个厄密算符.
+\end{theorem}
+\begin{proof}
+  给定任意一组基矢$\ket{n}$, 将密度算符$\rho$ 在此基矢下展开, 可以发现:
+  \begin{equation}
+    \begin{aligned}
+      \rho_{mn} = \sum_{i}p_{i}\bra{m}\ket{a_{i}}\bra{a_{i}}\ket{n} = \rho_{nm}^{*}
+    \end{aligned}
+  \end{equation}
+  即$\rho$ 是个厄密矩阵.
+\end{proof}
+
+\begin{theorem}
+  对于纯态的密度算符$\rho$, 满足:
+  \begin{equation}
+    \begin{aligned}
+      \rho^{2} = \rho
+    \end{aligned}
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  易证, 略
+\end{proof}
+
+\begin{theorem}
+  对于密度算符$\rho$ 的迹, 我们有:
+  \begin{equation}
+    \begin{aligned}
+      {\rm tr} \; \rho = 1
+    \end{aligned}
+  \end{equation}
+
+  \begin{equation}
+    {\rm tr}\; \rho^{2} \left\{
+    \begin{aligned}
+      & = 1, \text{纯态}\\
+      & < 1, \text{混合态}
+    \end{aligned}\right.
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  \begin{equation}
+    \begin{aligned}
+      {\rm tr}\; \rho &= \sum_{n} \sum_{i} p_{i}\bra{n}\ket{a_{i}}\bra{a_{i}}\ket{n} \\
+                      &= \sum_{i} \sum_{n} p_{i} \bra{a_{i}}\ket{n}\bra{n}\ket{a_{i}} \\
+                      &= \sum_{i} p_{i} = 1
+    \end{aligned}
+  \end{equation}
+
+  \begin{equation}
+    \begin{aligned}
+      {\rm tr}\; \rho^{2} &= \sum_{n} \sum_{ij} p_{i} p_{j}\bra{n}\ket{a_{i}}\bra{a_{i}}\ket{a_{j}}\bra{a_{j}}\ket{n}\\
+                          &= \sum_{ij}p_{i}p_{j} \bra{a_{j}}\ket{a_{i}}\bra{a_{i}}\ket{a_{j}}\\
+                          &= \sum_{i} p_{i} \left(\sum_{j} p_{j} |\bra{a_{i}}\ket{a_{j}}|^{2}\right)
+    \end{aligned}
+  \end{equation}
+  上式中, 如果为纯态, 那么退化为 ${\rm tr}\; \rho^{2} = 1$, 如果为混合态, 当$i\neq j$
+  时$|\bra{a_{i}}\ket{a_{j}}|^{2}<1$, 则有
+  \begin{equation}
+    \begin{aligned}
+      {\rm tr}\; \rho^{2} < \sum_{i}p_{i} = 1
+    \end{aligned}
+  \end{equation}
+\end{proof}
+
+\begin{theorem}
+  若混合态由一系列相互正交的态构成, 则密度算符$\rho$ 的本征态即为那些构成混合态的态$\ket{a_{i}}$,
+  相应的本征值为概率$p_{i}$.
+\end{theorem}
+\begin{proof}
+  易证, 略
+\end{proof}
+\begin{remark}
+  对于那些混合态由不相互正交的态构成的情况, 由于密度算符仍然是厄密算符, 它一定具有一系列相互正交的本征态$\ket{b_{i}}$:
+  \begin{equation}
+    \begin{aligned}
+      \rho \ket{b_{i}} = q_{i} \ket{b_{i}}
+    \end{aligned}
+  \end{equation}
+  那么将$\rho$ 在$\ket{b_{i}}$ 基矢下展开为对角阵形式:
+  \begin{equation}
+    \begin{aligned}
+      \rho = \sum_{i} q_{i} \ket{b_{i}}\bra{b_{i}}
+    \end{aligned}
+  \end{equation}
+  可以看出, 我们可以用另一组相互正交态构成一个相同的密度算符. 那么这两个混合态是
+  相同的吗?
+\end{remark}
+
+
+在Heisenberg绘景下, 态矢量$\ket{a_{i}}^{H}$ 不含时, 因此密度算符也是个不含时算符:
+\begin{equation}
+  \begin{aligned}
+    \rho^{H} = \sum_{i} p_{i} \ket{a_{i}}^{H}\bra{a_{i}}^{H}
+  \end{aligned}
+\end{equation}
+
+在Schr\"odinger绘景下, 密度算符是一个含时算符, 其运动方程可以由Schr\"odinger方程导出:
+\begin{equation}\label{eq:density_op_Liouville_eq}
+  \begin{aligned}
+    - {\rm i} \hbar \pdv{\rho^{S}(t)}{t} = [H, \rho^{S}(t)]
+  \end{aligned}
+\end{equation}
+
+

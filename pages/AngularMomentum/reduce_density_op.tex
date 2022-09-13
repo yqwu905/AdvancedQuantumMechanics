@@ -1,0 +1,62 @@
+\subsection{复合体系与约化密度矩阵}
+假设现在有这样的情况, 我们考虑一个有两个粒子$1,2$ 构成的复合体系, 但我们现在
+只想求粒子$1$ 的某个物理量$A_1$, 会得到怎样的结果呢?
+
+对于双粒子体系, 复合体系的基矢定义在两粒子Hilbert空间$\mathcal{H}_{1}, \mathcal{H}_{2}$的张量积空间上
+$\mathcal{H}_{1}\otimes \mathcal{H}_{2}$, 任意纯态的态矢$\ket{\alpha}$为:
+\begin{equation}
+  \begin{aligned}
+    \ket{\alpha} = \sum_{i} \sum_{m} \ket{i,m} c_{im}
+  \end{aligned}
+\end{equation}
+其中:
+\begin{equation}
+  \begin{aligned}
+    \ket{i,m} = \ket{a_{i}}\otimes \ket{b_{m}}
+  \end{aligned}
+\end{equation}
+
+同时满足归一化条件:
+\begin{equation}
+  \begin{aligned}
+    \sum_{i} \sum_{m} |c_{im}|^{2} = 1
+  \end{aligned}
+\end{equation}
+为了简单, 我们考虑复合系统处于纯态时的密度算符:
+\begin{equation}
+  \begin{aligned}
+    \rho = \ket{\alpha}\bra{\alpha} = \sum_{ii'}\sum_{mm'}c_{i'm'}c_{im}^{*}\ket{i', m'}\bra{i, m}
+  \end{aligned}
+\end{equation}
+现在我们考虑粒子$1$ 的力学量$A_1$ 的期望值:
+\begin{equation}
+  \begin{aligned}
+    \langle A_1 \rangle &= {\rm tr}\; (A_1 \rho) \\
+                        &= \sum_{jj'}\sum_{nn'}\bra{j', n'}A_1\ket{j, n}\bra{j, n}\rho \ket{j', n'}\\
+                        &= \sum_{jj'}\bra{a_{j'}}A_1\ket{a_{j}}\sum_{n}\bra{j,n}\rho \ket{j', n}
+  \end{aligned}
+\end{equation}
+
+令$\rho_1$ 为:
+\begin{equation}
+  \begin{aligned}
+    \rho_1 = \sum_{n} \bra{b_{n}}\rho \ket{b_{n}} = {\rm tr}_2 \rho
+  \end{aligned}
+\end{equation}
+其中${\rm tr}_{2}$ 表示求偏迹, 即仅在$\mathcal{H}_{2}$中求迹. 得到的$\rho_1$ 是$\mathcal{H}_{1}$ 中的算符.
+称作粒子$1$ 的约化密度算符.
+
+利用约化密度算符$\rho_1$, 我们可以求得$A_1$ 的平均值:
+\begin{equation}
+  \begin{aligned}
+    \langle A_1 \rangle = {\rm tr}_{1}(A_1 \rho_1)
+  \end{aligned}
+\end{equation}
+上式仅在$\mathcal{H}_{1}$ 中求值.
+
+但值得注意的是, 尽管我们讨论的是一个双粒子纯态, 但是约化密度算符 $\rho_1$ 对应的态
+可能是一个混合态, 这一现象称为\emph{纠缠}. 进一步不做证明的, 如果一个复合态$\rho_{123\cdots}$ 
+可以写为$\rho_1\otimes \rho_2 \otimes \rho_3\otimes \cdots$的形式, 则称其为直积态, 其各约化密度算符
+对应于纯态; 反之则称为纠缠态.
+
+

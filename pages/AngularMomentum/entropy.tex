@@ -1,0 +1,43 @@
+\subsection{量子熵}
+
+现在让我们来简单讨论一下量子体系中熵的概念. 首先, 我们希望这一量子熵刻画某种不确定性,
+这种不确定性是由于\emph{混合态中各态按照概率随机出现}导致的; 并且为了和热力学熵相似,
+我们希望量子熵也是广延量\sn{这里的数学处理会更加复杂, 原因在于每个量子体系拥有自己独立的Hilbert空间,
+而混合体系的Hilbert空间应当是各体系空间的张量积.}, 我们先定义一个算符:
+\sn{此处的负号是为了使$o$ 半正定}
+\begin{equation}
+  \begin{aligned}
+    o = -\log \rho
+  \end{aligned}
+\end{equation}
+
+首先不难看出, 这一定义满足广延量的性质. 并且, 对于纯态:
+
+\begin{theorem}
+若$\rho$ 是一个描述纯态的密度算符, 则有:  
+\begin{equation}
+  \begin{aligned}
+    o(\rho) = 0
+  \end{aligned}
+\end{equation}
+\end{theorem}
+\begin{proof}
+  由于纯态的密度算符的幂等性, 有:
+  \begin{equation}
+    \begin{aligned}
+      \log(\rho^{2}) = \log \rho + \log \rho = \log \rho
+    \end{aligned}
+  \end{equation}
+  即$\log \rho=0$
+\end{proof}
+
+符合我们的直观(刻画的是由混合态中态的混合引入的不确定性).
+
+那么, 这样的一个算符, 其在相应的密度算符$\rho$ 刻画的态下的期望值为:
+
+\begin{equation}
+  \begin{aligned}
+    S = -{\rm tr}\; (\rho \log \rho)
+  \end{aligned}
+\end{equation}
+
