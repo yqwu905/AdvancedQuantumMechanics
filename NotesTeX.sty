@@ -72,6 +72,7 @@
 
 \usepackage{mathtools,amsthm,amssymb,amsfonts,bm}   % Math Presets
 \usepackage{thmtools,amsmath}
+\usepackage[framemethod=TikZ]{mdframed}
 \usepackage{array,tabularx,booktabs}                % Table Presets
 \usepackage{graphicx,wrapfig,float,caption}         % Figure Presets
 \usepackage{setspace,multicol}                      % Text Presets
@@ -119,142 +120,111 @@
 %           User Created Environments 
 % ----------------------------------------------------------------------
 
-\newlength{\spacelength}
-\settowidth{\spacelength}{\normalfont\ }
-\declaretheoremstyle[
-    headfont={\bfseries\sffamily\footnotesize},
-    notefont={\normalfont},
-    bodyfont={\normalfont},
-    headpunct={\relax},%\newline,
-    headformat={%
-        \makebox[0pt][r]{\NAME\ \NUMBER\hspace{\marginparsep}}\hskip-\spacelength{\normalsize\NOTE}},
-]{theorem}
+\makeatother
+\mdfsetup{skipabove=1em,skipbelow=0em}
 
-\tcolorboxenvironment{theorem}{
-  boxrule=0pt,
-  boxsep=0pt,
-  colback={White!90!Dandelion},
-  enhanced jigsaw, 
-  borderline west={1pt}{0pt}{Dandelion},
-  sharp corners,
-  before skip=10pt,
-  after skip=10pt,
-  left=5pt,
-  right=5pt,
-  breakable,
-}
-
-\declaretheorem[style=theorem]{theorem}
-
-\let\proof\relax
-\let\endproof\relax
+\theoremstyle{definition}
 
 \declaretheoremstyle[
-    headfont={\small\scshape},
-    notefont={\normalfont},
-    bodyfont={\normalfont},
-    headpunct={\relax},
-    headformat={%
-        \makebox[0pt][r]{\NAME\hspace{\marginparsep}}\hskip-\spacelength{\NOTE}},
-]{proof}
-
-\tcolorboxenvironment{proof}{
-  boxrule=0pt,
-  boxsep=0pt,
-  blanker,
-  borderline west={1pt}{0pt}{NavyBlue!80!white},
-  before skip=10pt,
-  after skip=10pt,
-  left=5pt,
-  right=5pt,
-  breakable,
-}
+    headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
+    }
+]{thmgreenbox}
 
 \declaretheoremstyle[
-    headfont={\footnotesize\itshape},
-    notefont={\normalfont},
-    bodyfont={\normalfont},
-    headpunct={\relax},
-    headformat={%
-        \makebox[0pt][r]{\NAME\hspace{\marginparsep}}\hskip-\spacelength{\NOTE}},
-]{claim}
+    headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
+    }
+]{thmgreenbox}
 
-\declaretheorem[
-    style=proof,
-    qed=\qedsymbol]{proof}
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue, backgroundcolor=NavyBlue!5,
+    }
+]{thmbluebox}
 
-\declaretheorem[style=claim]{Intuition}
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue
+    }
+]{thmblueline}
 
-\theoremstyle{theorem}
-\newtheorem{ques}{Question}
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!5,
+    }
+]{thmredbox}
 
-\theoremstyle{theorem}
-\newtheorem{definition}{Definition}
-\tcolorboxenvironment{definition}{
-  boxrule=0pt,
-  boxsep=0pt,
-  colback={White!90!Cerulean},
-  enhanced jigsaw, 
-  borderline west={1pt}{0pt}{Cerulean},
-  sharp corners,
-  before skip=10pt,
-  after skip=10pt,
-  left=5pt,
-  right=5pt,
-  breakable,
-}
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!1,
+    },
+    qed=\qedsymbol
+]{thmproofbox}
 
-\theoremstyle{theorem}
-\newtheorem{lemma}{Lemma}
-\tcolorboxenvironment{lemma}{
-  boxrule=0pt,
-  boxsep=0pt,
-  blanker,
-  borderline west={1pt}{0pt}{Red},
-  before skip=10pt,
-  after skip=10pt,
-  sharp corners,
-  left=5pt,
-  right=5pt,
-  breakable,
-}
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue, backgroundcolor=NavyBlue!1,
+    },
+]{thmexplanationbox}
+
+\declaretheorem[style=thmgreenbox, name=Definition]{definition}
+\declaretheorem[style=thmbluebox, numbered=no, name=Example]{eg}
+\declaretheorem[style=thmredbox, name=Proposition]{prop}
+\declaretheorem[style=thmredbox, name=Theorem]{theorem}
+\declaretheorem[style=thmredbox, name=Lemma]{lemma}
+\declaretheorem[style=thmredbox, numbered=no, name=Corollary]{corollary}
+
+\declaretheorem[style=thmproofbox, name=Proof]{replacementproof}
+\renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
 
 
-\theoremstyle{claim}
-\newtheorem{intu}{Intuition}
+\declaretheorem[style=thmexplanationbox, name=Proof]{tmpexplanation}
+\newenvironment{explanation}[1][]{\vspace{-10pt}\begin{tmpexplanation}}{\end{tmpexplanation}}
 
-\theoremstyle{claim}
-\newtheorem{solu}{Solution}
+\declaretheorem[style=thmblueline, numbered=no, name=Remark]{remark}
 
-\theoremstyle{claim}
-\newtheorem{remark}{Remark}
-\tcolorboxenvironment{remark}{
-  boxrule=0pt,
-  boxsep=0pt,
-  blanker,
-  borderline west={1pt}{0pt}{Green},
-  sharp corners,
-  before skip=10pt,
-  after skip=10pt,
-  left=5pt,
-  right=5pt,
-  breakable,
-}
+\newtheorem*{uovt}{UOVT}
+\newtheorem*{notation}{Notation}
+\newtheorem*{previouslyseen}{As previously seen}
+\newtheorem*{problem}{Problem}
+\newtheorem*{observe}{Observe}
+\newtheorem*{property}{Property}
+\newtheorem*{intuition}{Intuition}
 
-\theoremstyle{claim}
-\newtheorem{example}{Example}
-\tcolorboxenvironment{example}{
-  boxrule=0pt,
-  boxsep=0pt,
-  blanker,
-  borderline west={1pt}{0pt}{Black},
-  sharp corners,
-  before skip=10pt,
-  after skip=10pt,
-  left=5pt,
-  right=5pt,
-  breakable,
-}
+
+\usepackage{etoolbox}
+\AtEndEnvironment{vb}{\null\hfill$\diamond$}%
+\AtEndEnvironment{intermezzo}{\null\hfill$\diamond$}%
+% \AtEndEnvironment{opmerking}{\null\hfill$\diamond$}%
+
+
+
+\makeatletter
+
 
 \renewcommand*{\raggedleftmarginnote}{\noindent}
 \renewcommand*{\raggedrightmarginnote}{\noindent}
