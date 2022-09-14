@@ -1,2 +1,155 @@
 \subsection{角动量的本征态与本征值}
 
+不妨回过头来考虑一下定轴转动的情况: 以$x,y,z$ 
+三个轴做定轴转动, 记作$R_1, R_2, R_3$,
+不难看出$R_1,R_2,R_3$ 均构成${\rm SO}(2)$ 
+群, 并有如下表示:
+
+\begin{equation}\label{eq:r1_mat}
+  \begin{aligned}
+    R_1(\psi) =
+    \begin{pmatrix}
+      1 & 0 & 0 \\
+      0 & \cos \psi & -\sin \psi \\
+      0 & \sin \psi & \cos \psi
+    \end{pmatrix}
+  \end{aligned}
+\end{equation}
+
+\begin{equation}\label{eq:r2_mat}
+  \begin{aligned}
+    R_{2}(\psi) =
+    \begin{pmatrix}
+      \cos \psi & 0 & \sin \psi \\
+      0 & 1 & 0 \\
+      -\sin \psi & 0 & \cos \psi
+    \end{pmatrix}
+  \end{aligned}
+\end{equation}
+
+\begin{equation}\label{eq:r3_mat}
+  \begin{aligned}
+    R_{3}(\psi) =
+    \begin{pmatrix}
+      \cos \psi & -\sin \psi & 0 \\
+      \sin \psi & \cos \psi & 0\\
+      0 & 0 & 1
+    \end{pmatrix}
+  \end{aligned}
+\end{equation}
+
+同时, 考虑绕矢量$\vec{n}$ 的转动$R_{n}$ 的
+生成元$J_{n}$:
+
+\begin{equation}\label{eq:J_generator_infinitesimal}
+  \begin{aligned}
+    \lim_{\psi\to 0} R_{n}(\psi) = 1 + {\rm i} \epsilon J_{n}
+  \end{aligned}
+\end{equation}
+
+或者:
+
+\begin{equation}\label{eq:J_generator_exponential}
+  \begin{aligned}
+    R_{n}(\psi) = e^{- {\rm i} \psi J_{n}}
+  \end{aligned}
+\end{equation}
+
+\begin{lemma}[ $J_{n}$ 的矢量性]
+  给定$\vec{n}$ 以及一个三维转动 $R$, 使得
+  $R \vec{n}R^{-1}=\vec{n'}$:
+
+  \begin{equation}
+    \begin{aligned}
+      R J_{n} R^{-1} = J_{n'}
+    \end{aligned}
+  \end{equation}
+
+\end{lemma}
+\begin{proof}
+  利用矩阵恒等式:
+  \begin{equation}
+    \begin{aligned}
+      R e^{- {\rm i}\psi J_{n}}R^{-1} = e^{- {\rm i}\psi R J_{n} R^{-1}}
+    \end{aligned}
+  \end{equation}
+\end{proof}
+
+我们再利用$J_{n}$ 的无穷小形式\ref{eq:J_generator_infinitesimal},
+从式\ref{eq:r1_mat}-式\ref{eq:r3_mat}, 可以写
+出$J_1, J_{2}, J_3$ 的表示:
+
+\begin{equation}
+  \begin{aligned}
+    J_1 =
+    \begin{pmatrix}
+      0 & 0 & 0 \\
+      0 & 0 & - {\rm i} \\
+      0 & {\rm i} & 0 \\
+    \end{pmatrix}\quad
+    J_2 =
+    \begin{pmatrix}
+      0 & 0 & {\rm i}\\
+      0 & 0 & 0\\
+      - {\rm i} & 0 & 0
+    \end{pmatrix}\quad
+    J_3 = 
+    \begin{pmatrix}
+      0 & - {\rm i} & 0\\
+      {\rm i} & 0 & 0\\
+      0 & 0 & 0
+    \end{pmatrix}
+  \end{aligned}
+\end{equation}
+
+利用Levi-Civita记号, 可以写成:
+
+\begin{equation}\label{eq:lc_form_j_n}
+  \begin{aligned}
+    (J_{k})^{l}_{m} = - {\rm i} \epsilon_{klm}
+  \end{aligned}
+\end{equation}
+
+\begin{theorem}[Vector Generator $J$]
+  \begin{enumerate}
+    \item 对于$J_{i}, i\in \{1,2,3\}$, 存在关系:
+      \begin{equation}
+        \begin{aligned}
+          R J_{k} R^{-1} = J_{l} R^{l}_{k}
+        \end{aligned}
+      \end{equation}
+
+    \item 对于绕任意轴$\vec{n}$ 的生成元$J_{n}$, 存在分解:
+      \begin{equation}
+        \begin{aligned}
+          J_{n} = J_{k} n_{k},\quad \text{where } \vec{n} = n_{k}\vec{e}_{k}
+        \end{aligned}
+      \end{equation}
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+    \item 利用引理\ref{eq:SO3_tensor_invariant_2}, 两边同乘$R^{i}_{s}$ 并对$i$ 求和:
+      \begin{equation}
+        \begin{aligned}
+          R^{i}_{s}R^{i}_{l}R^{j}_{m}R^{k}_{n}\epsilon^{lmn} = R^{i}_{s}\epsilon^{ijk}
+        \end{aligned}
+      \end{equation}
+      注意到$R^{i}_{s}R^{i}_{l}$ 实际上就是$(R^{T}R)^{s}_{l}=\delta^{sl}$,
+      因此有:
+      \begin{equation}
+        \begin{aligned}
+          R^{j}_{m}R^{k}_{n}\epsilon^{smn} = R^{i}_{s}\epsilon^{ijk}
+        \end{aligned}
+      \end{equation}
+      同时利用式\ref{eq:lc_form_j_n}, 可以得到:
+      \begin{equation}
+        \begin{aligned}
+          R^{j}_{m}R^{k}_{n}(J_{s})^{m}_{n} = R^{i}_{s}(J_{i})^{j}_{k}
+        \end{aligned}
+      \end{equation}
+      至此证毕.
+    \item 利用1中结论易证.
+  \end{enumerate}
+\end{proof}
+

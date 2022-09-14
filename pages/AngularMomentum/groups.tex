@@ -58,4 +58,255 @@ $2\times 2$ 的复矩阵的形式, 并且注意到式(3.2.45), 这是一个幺�
 
 \end{remark}
 
+现在我们来研究${\rm SO}(3)$ 的一些性质:
 
+\begin{lemma}[Tensor Invariant 1]
+  对于任意$R\in {\rm SO}(3)$, 有:
+  \mn{这里以及下面默认使用了Einstein求和约定}
+  \begin{equation}\label{eq:SO3_tensor_invariant_1}
+    \begin{aligned}
+      R^{i}_{k}R^{j}_{l}\delta^{kl} = \delta^{ij}
+    \end{aligned}
+  \end{equation}
+  
+\end{lemma}
+\begin{proof}
+  \begin{equation}
+    \begin{aligned}
+      R^{i}_{k}R^{j}_{l}\delta^{kl} &= R^{i}_{k}R^{j}_{l} = R^{i}_{k}(R^{T})^{k}_{j} \\
+        &= (RR^{T})^{i}_{j} = \delta_{ij}
+    \end{aligned}
+  \end{equation}
+\end{proof}
+
+\begin{lemma}[Tensor Invariant 2]
+  对于任意$R\in {\rm SO}(3)$, 有:
+  \begin{equation}\label{eq:SO3_tensor_invariant_2}
+    \begin{aligned}
+      R^{i}_{l}R^{j}_{m}R^{k}_{n} \epsilon^{lmn} = \epsilon^{ijk}
+    \end{aligned}
+  \end{equation}
+
+\end{lemma}
+\begin{proof}
+  首先注意到矩阵的行列式可以写成:
+
+  \begin{equation}
+    \begin{aligned}
+      \det R = R^{1}_{i}R^{2}_{k}R^{3}_{l} \epsilon^{lmn}
+    \end{aligned}
+  \end{equation}
+
+  因此, 对于式\ref{eq:SO3_tensor_invariant_2},
+  当$i,j,k$ 存在重复时, 对应于存在相同行
+  的矩阵的行列式, 因此${\rm LHS}=0$; 而当$i,j,k$ 不
+  重复时,  由于行列式每交换一次行结果就会变为相反数,
+  结合Levi-Civita符号的逆序数定义即可证明.
+\end{proof}
+
+不妨回过头来考虑一下定轴转动的情况: 以$x,y,z$ 
+三个轴做定轴转动, 记作$R_1, R_2, R_3$,
+不难看出$R_1,R_2,R_3$ 均构成${\rm SO}(2)$ 
+群, 并有如下表示:
+
+\begin{equation}\label{eq:r1_mat}
+  \begin{aligned}
+    R_1(\psi) =
+    \begin{pmatrix}
+      1 & 0 & 0 \\
+      0 & \cos \psi & -\sin \psi \\
+      0 & \sin \psi & \cos \psi
+    \end{pmatrix}
+  \end{aligned}
+\end{equation}
+
+\begin{equation}\label{eq:r2_mat}
+  \begin{aligned}
+    R_{2}(\psi) =
+    \begin{pmatrix}
+      \cos \psi & 0 & \sin \psi \\
+      0 & 1 & 0 \\
+      -\sin \psi & 0 & \cos \psi
+    \end{pmatrix}
+  \end{aligned}
+\end{equation}
+
+\begin{equation}\label{eq:r3_mat}
+  \begin{aligned}
+    R_{3}(\psi) =
+    \begin{pmatrix}
+      \cos \psi & -\sin \psi & 0 \\
+      \sin \psi & \cos \psi & 0\\
+      0 & 0 & 1
+    \end{pmatrix}
+  \end{aligned}
+\end{equation}
+
+同时, 考虑绕矢量$\vec{n}$ 的转动$R_{n}$ 的
+生成元$J_{n}$:
+
+\begin{equation}\label{eq:J_generator_infinitesimal}
+  \begin{aligned}
+    \lim_{\psi\to 0} R_{n}(\psi) = 1 - {\rm i} \epsilon J_{n}
+  \end{aligned}
+\end{equation}
+
+或者:
+
+\begin{equation}\label{eq:J_generator_exponential}
+  \begin{aligned}
+    R_{n}(\psi) = e^{- {\rm i} \psi J_{n}}
+  \end{aligned}
+\end{equation}
+
+\begin{lemma}[ $J_{n}$ 的矢量性]
+  给定$\vec{n}$ 以及一个三维转动 $R$, 使得
+  $R \vec{n}R^{-1}=\vec{n'}$:
+
+  \begin{equation}
+    \begin{aligned}
+      R J_{n} R^{-1} = J_{n'}
+    \end{aligned}
+  \end{equation}
+
+\end{lemma}
+\begin{proof}
+  利用矩阵恒等式:
+  \begin{equation}
+    \begin{aligned}
+      R e^{- {\rm i}\psi J_{n}}R^{-1} = e^{- {\rm i}\psi R J_{n} R^{-1}}
+    \end{aligned}
+  \end{equation}
+\end{proof}
+
+我们再利用$J_{n}$ 的无穷小形式\ref{eq:J_generator_infinitesimal},
+从式\ref{eq:r1_mat}-式\ref{eq:r3_mat}, 可以写
+出$J_1, J_{2}, J_3$ 的表示:
+
+\begin{equation}
+  \begin{aligned}
+    J_1 =
+    \begin{pmatrix}
+      0 & 0 & 0 \\
+      0 & 0 & - {\rm i} \\
+      0 & {\rm i} & 0 \\
+    \end{pmatrix}\quad
+    J_2 =
+    \begin{pmatrix}
+      0 & 0 & {\rm i}\\
+      0 & 0 & 0\\
+      - {\rm i} & 0 & 0
+    \end{pmatrix}\quad
+    J_3 = 
+    \begin{pmatrix}
+      0 & - {\rm i} & 0\\
+      {\rm i} & 0 & 0\\
+      0 & 0 & 0
+    \end{pmatrix}
+  \end{aligned}
+\end{equation}
+
+利用Levi-Civita记号, 可以写成:
+
+\begin{equation}\label{eq:lc_form_j_n}
+  \begin{aligned}
+    (J_{k})^{l}_{m} = - {\rm i} \epsilon_{klm}
+  \end{aligned}
+\end{equation}
+
+\begin{theorem}[Vector Generator $J$]
+  \begin{enumerate}
+    \item 对于$J_{i}, i\in \{1,2,3\}$, 存在关系:
+      \begin{equation}
+        \begin{aligned}
+          R J_{k} R^{-1} = J_{l} R^{l}_{k}
+        \end{aligned}
+      \end{equation}
+
+    \item 对于绕任意轴$\vec{n}$ 的生成元$J_{n}$, 存在分解:
+      \begin{equation}\label{eq:j_decomposition}
+        \begin{aligned}
+          J_{n} = J_{k} n_{k},\quad \text{where } \vec{n} = n_{k}\vec{e}_{k}
+        \end{aligned}
+      \end{equation}
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+    \item 利用引理\ref{eq:SO3_tensor_invariant_2}, 两边同乘$R^{i}_{s}$ 并对$i$ 求和:
+      \begin{equation}
+        \begin{aligned}
+          R^{i}_{s}R^{i}_{l}R^{j}_{m}R^{k}_{n}\epsilon^{lmn} = R^{i}_{s}\epsilon^{ijk}
+        \end{aligned}
+      \end{equation}
+      注意到$R^{i}_{s}R^{i}_{l}$ 实际上就是$(R^{T}R)^{s}_{l}=\delta^{sl}$,
+      因此有:
+      \begin{equation}
+        \begin{aligned}
+          R^{j}_{m}R^{k}_{n}\epsilon^{smn} = R^{i}_{s}\epsilon^{ijk}
+        \end{aligned}
+      \end{equation}
+      同时利用式\ref{eq:lc_form_j_n}, 可以得到:
+      \begin{equation}
+        \begin{aligned}
+          R^{j}_{m}R^{k}_{n}(J_{s})^{m}_{n} = R^{i}_{s}(J_{i})^{j}_{k}
+        \end{aligned}
+      \end{equation}
+      至此证毕.
+    \item 利用1中结论易证.
+  \end{enumerate}
+\end{proof}
+
+式\ref{eq:j_decomposition}指出$J_1, J_2, J_3$ 构成
+所有${\rm SO}(3)$ 的单参阿贝尔子群的生成元的一组基.
+
+\begin{theorem}[Lie algebra of ${\rm SO}(3)$]
+  \begin{equation}\label{eq:SO3_lie_algebra}
+    \begin{aligned}
+      [J_{j}, J_{k}] = {\rm i} \epsilon_{jkl}J^{l}
+    \end{aligned}
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  首先, 当$j=k$ 时, 上式毫无疑问的成立. 当$j\neq k$ 时,
+  我们以$j=1, k=2$ 为例, 考虑对$J_1$ 做一个绕$\vec{e}_{2}$ 的
+  无穷小转动$R_2(\dd \psi) = I - {\rm i} \dd \psi J_2$:
+  \begin{equation}
+    \begin{aligned}
+      R_2(\dd \psi)J_1 R_2^{-1}(\dd \psi) = J_{k}(R_2(\dd \psi))^{k}_{1}
+    \end{aligned}
+  \end{equation}
+  仅保留$\dd \psi$的一次项:
+   \begin{equation}
+    \begin{aligned}
+      {\rm LHS} &= (I - {\rm i}\dd \psi J_2)J_1 (I+{\rm i}\dd \psi J_2)\\
+                &= J_1 + {\rm i}\dd \psi[J_1, J_2]
+    \end{aligned}
+  \end{equation}
+  同理, 对于右侧:
+  \begin{equation}
+    \begin{aligned}
+      {\rm RHS} &= J_{k}(I- {\rm i}\dd \psi J_2)^{k}_{1} \\
+                &= J_1 - {\rm i}\dd \psi J_{k} (J_2)^{k}_{1}
+    \end{aligned}
+  \end{equation}
+  代入$J_2$ 的具体形式, 有:
+  \begin{equation}
+    \begin{aligned}
+      {\rm RHS} = J_1 -\dd \psi J_{3}
+    \end{aligned}
+  \end{equation}
+  对比可知:
+  \begin{equation}
+    \begin{aligned}
+      [J_1, J_2] = {\rm i} J_{3}
+    \end{aligned}
+  \end{equation}
+  类似的, 可以证明其他情况.
+\end{proof}
+
+\begin{remark}
+  式\ref{eq:SO3_lie_algebra}在恒等元附近给出与群乘法
+  一样的信息, 但是还存在一些"全局"性质, 例如 $R_{n}(2 \pi)=E$,
+  $R_{n}(\pi)=R_{-n}(\pi)$等, 这些性质为群表示添加了额外的限制.
+\end{remark}
