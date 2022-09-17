@@ -1,155 +1,216 @@
-\subsection{角动量的本征态与本征值}
+\subsection{角动量的本征态与本征值\sn{
+也不妨叫做${\rm SO}(3)$ 群李代数的不可约表示}}
 
-不妨回过头来考虑一下定轴转动的情况: 以$x,y,z$ 
-三个轴做定轴转动, 记作$R_1, R_2, R_3$,
-不难看出$R_1,R_2,R_3$ 均构成${\rm SO}(2)$ 
-群, 并有如下表示:
-
-\begin{equation}\label{eq:r1_mat}
-  \begin{aligned}
-    R_1(\psi) =
-    \begin{pmatrix}
-      1 & 0 & 0 \\
-      0 & \cos \psi & -\sin \psi \\
-      0 & \sin \psi & \cos \psi
-    \end{pmatrix}
-  \end{aligned}
-\end{equation}
-
-\begin{equation}\label{eq:r2_mat}
-  \begin{aligned}
-    R_{2}(\psi) =
-    \begin{pmatrix}
-      \cos \psi & 0 & \sin \psi \\
-      0 & 1 & 0 \\
-      -\sin \psi & 0 & \cos \psi
-    \end{pmatrix}
-  \end{aligned}
-\end{equation}
-
-\begin{equation}\label{eq:r3_mat}
-  \begin{aligned}
-    R_{3}(\psi) =
-    \begin{pmatrix}
-      \cos \psi & -\sin \psi & 0 \\
-      \sin \psi & \cos \psi & 0\\
-      0 & 0 & 1
-    \end{pmatrix}
-  \end{aligned}
-\end{equation}
-
-同时, 考虑绕矢量$\vec{n}$ 的转动$R_{n}$ 的
-生成元$J_{n}$:
-
-\begin{equation}\label{eq:J_generator_infinitesimal}
-  \begin{aligned}
-    \lim_{\psi\to 0} R_{n}(\psi) = 1 + {\rm i} \epsilon J_{n}
-  \end{aligned}
-\end{equation}
-
-或者:
-
-\begin{equation}\label{eq:J_generator_exponential}
-  \begin{aligned}
-    R_{n}(\psi) = e^{- {\rm i} \psi J_{n}}
-  \end{aligned}
-\end{equation}
-
-\begin{lemma}[ $J_{n}$ 的矢量性]
-  给定$\vec{n}$ 以及一个三维转动 $R$, 使得
-  $R \vec{n}R^{-1}=\vec{n'}$:
-
+\begin{theorem}
+  定义算符$J^{2} = J_1^{2} + J_2^{2} + J_3^{2}$,有:
   \begin{equation}
     \begin{aligned}
-      R J_{n} R^{-1} = J_{n'}
+      [J_{k}, J^{2}] = 0,\quad \text{for } k=1,2,3
     \end{aligned}
   \end{equation}
-
-\end{lemma}
+\end{theorem}
 \begin{proof}
-  利用矩阵恒等式:
+  取$k=1$ 为例, $k=2,3$ 证明类似.
   \begin{equation}
     \begin{aligned}
-      R e^{- {\rm i}\psi J_{n}}R^{-1} = e^{- {\rm i}\psi R J_{n} R^{-1}}
+      [J_{1}, J^{2}] &= J_1^{3} + J_1 J_2^{2} + J_1 J_3^{2} - J_1^{3} - J_2^{2} J_1 - J_3^{2}J_1\\
+        &= {\rm i}(J_2 J_3 + J_3 J_2 - J_2 J_3 - J_3 J_2) \\
+        &=0
     \end{aligned}
   \end{equation}
 \end{proof}
 
-我们再利用$J_{n}$ 的无穷小形式\ref{eq:J_generator_infinitesimal},
-从式\ref{eq:r1_mat}-式\ref{eq:r3_mat}, 可以写
-出$J_1, J_{2}, J_3$ 的表示:
+\begin{remark}
+  不难看出$J^{2}$与李代数中任意元素都对易, 这样的
+  算符我们称为\emph{Casimir算符}, 我们这里不去讨论
+  更深层的数学, 仅仅不证明的提及两个性质:
+  \begin{itemize}
+    \item Casimir算符是唯一的(除去那些相差/相乘一个常数的).
+    \item 在任何不可约表示中, Casimir算符被表示为$\lambda E$的
+      形式, 其中$E$ 是单位矩阵, 而$\lambda$ 是一个\emph{由表示确定的数}.
+      换言之, 任何不可约表示下的矢量都是Casimir算符的特征矢量,
+      并且他们具有相同的特征值.\mn{事实上这就是Schur引理.}
+  \end{itemize}
+\end{remark}
+
+接下来我们引入升降阶算符:
 
 \begin{equation}
   \begin{aligned}
-    J_1 =
-    \begin{pmatrix}
-      0 & 0 & 0 \\
-      0 & 0 & - {\rm i} \\
-      0 & {\rm i} & 0 \\
-    \end{pmatrix}\quad
-    J_2 =
-    \begin{pmatrix}
-      0 & 0 & {\rm i}\\
-      0 & 0 & 0\\
-      - {\rm i} & 0 & 0
-    \end{pmatrix}\quad
-    J_3 = 
-    \begin{pmatrix}
-      0 & - {\rm i} & 0\\
-      {\rm i} & 0 & 0\\
-      0 & 0 & 0
-    \end{pmatrix}
+    J_{\pm} = J_1 \pm {\rm i} J_2
   \end{aligned}
 \end{equation}
 
-利用Levi-Civita记号, 可以写成:
+不难发现升降阶算符存在如下性质:
 
-\begin{equation}\label{eq:lc_form_j_n}
-  \begin{aligned}
-    (J_{k})^{l}_{m} = - {\rm i} \epsilon_{klm}
-  \end{aligned}
-\end{equation}
-
-\begin{theorem}[Vector Generator $J$]
+\begin{property}[Properties of raising and lowering operators]
   \begin{enumerate}
-    \item 对于$J_{i}, i\in \{1,2,3\}$, 存在关系:
-      \begin{equation}
-        \begin{aligned}
-          R J_{k} R^{-1} = J_{l} R^{l}_{k}
-        \end{aligned}
-      \end{equation}
-
-    \item 对于绕任意轴$\vec{n}$ 的生成元$J_{n}$, 存在分解:
-      \begin{equation}
-        \begin{aligned}
-          J_{n} = J_{k} n_{k},\quad \text{where } \vec{n} = n_{k}\vec{e}_{k}
-        \end{aligned}
-      \end{equation}
+    \Item \begin{equation}
+      \begin{aligned}
+        [J_3, J_{+}] = J_{+}
+      \end{aligned}
+    \end{equation}
+  \Item \begin{equation}
+    \begin{aligned}
+      [J_3, J_{-}] = -J_{-}
+    \end{aligned}
+    \end{equation}
+  \Item \begin{equation}
+    \begin{aligned}
+      [J_{+}, J_{-}] = 2 J_3
+    \end{aligned}
+  \end{equation}
+  \Item \begin{equation}\label{eq:j^2_expansion}
+    \begin{aligned}
+      J^{2} = J_3^{2} - J_3 + J_{+}J_{-} = J_3^{2} + J_3 + J_{-}J_{+}
+    \end{aligned}
+  \end{equation}
+  \Item \begin{equation}\label{eq:j_pm_conj}
+    \begin{aligned}
+      J_{\pm}^{\dagger} = J_{\mp}
+    \end{aligned}
+  \end{equation}
   \end{enumerate}
-\end{theorem}
+\end{property}
 \begin{proof}
-  \begin{enumerate}
-    \item 利用引理\ref{eq:SO3_tensor_invariant_2}, 两边同乘$R^{i}_{s}$ 并对$i$ 求和:
-      \begin{equation}
-        \begin{aligned}
-          R^{i}_{s}R^{i}_{l}R^{j}_{m}R^{k}_{n}\epsilon^{lmn} = R^{i}_{s}\epsilon^{ijk}
-        \end{aligned}
-      \end{equation}
-      注意到$R^{i}_{s}R^{i}_{l}$ 实际上就是$(R^{T}R)^{s}_{l}=\delta^{sl}$,
-      因此有:
-      \begin{equation}
-        \begin{aligned}
-          R^{j}_{m}R^{k}_{n}\epsilon^{smn} = R^{i}_{s}\epsilon^{ijk}
-        \end{aligned}
-      \end{equation}
-      同时利用式\ref{eq:lc_form_j_n}, 可以得到:
-      \begin{equation}
-        \begin{aligned}
-          R^{j}_{m}R^{k}_{n}(J_{s})^{m}_{n} = R^{i}_{s}(J_{i})^{j}_{k}
-        \end{aligned}
-      \end{equation}
-      至此证毕.
-    \item 利用1中结论易证.
-  \end{enumerate}
+  按照升降算符的定义展开计算即可.
 \end{proof}
 
+现在考虑$J_3$ 的特征矢量$J_3\ket{m}=m \ket{m}$ \sn{当然, 也是$J^{2}$ 的特征矢量},
+我们可以发现$J_{+}$ 的作用是将$\ket{m}$变为具有特征值$m+1$ 的$J_3$ 的特征矢量:
+
+\begin{equation}
+  \begin{aligned}
+    J_3 J_{+} \ket{m} = [J_3, J_{+}]\ket{m} + J_{+} J_3 \ket{m} = (m+1) J_{+}\ket{m}
+  \end{aligned}
+\end{equation}
+
+类似的, $J_{-}$ 的作用是将$ \ket{m}$变为$J_3$ 的特征值为$m-1$ 的特征矢量.
+
+考虑到$J_3$ 的特征矢量的数目决定了表示的维数, 因此我们要求$J_{+}$ 和
+$J_{-}$ 在$\ket{m}$ 上的作用必须在某一项截断, 来保证我们得到的是
+一个有限维表示.
+
+首先对于$J_{+}$, 假设在$\ket{j}$ 处截断:
+
+\begin{equation}
+  \begin{aligned}
+    J_{+}\ket{j} = 0
+  \end{aligned}
+\end{equation}
+
+那么, 利用\ref{eq:j^2_expansion}, 我们不难得到:
+\begin{equation}
+  \begin{aligned}
+    J^{2}\ket{j} = j(j+1) \ket{j}
+  \end{aligned}
+\end{equation}
+
+对于$J_{-}$, 假设其在$\ket{l}$ 处截断:
+
+\begin{equation}
+  \begin{aligned}
+    J_{-}\ket{l} = 0
+  \end{aligned}
+\end{equation}
+
+同样的, 利用\ref{eq:j^2_expansion}可以得到:
+
+\begin{equation}
+  \begin{aligned}
+    J^{2}\ket{l} = l(l-1)\ket{j}
+  \end{aligned}
+\end{equation}
+
+注意, 在一个确定的不可约表示下, 任何矢量对于$J^{2}$ 都具有
+相同的特征值, 而这就意味着:
+
+\begin{equation}
+  \begin{aligned}
+    j(j+1) = l(l-1)
+  \end{aligned}
+\end{equation}
+
+上式给出两个解: $j=l-1$ 或者$l=-j$, 但是由于$j$ 是升阶算
+符的截断处, 因此是最大的特征值, 仅能取$l=-j$.
+
+同时, 由于$\ket{l}$ 可以看作利用$J_{-}$ 从$\ket{j}$ 降阶而
+来, 因此一定满足:
+
+\begin{equation}
+  \begin{aligned}
+    j-l = 2j = n,\quad n\in \mathbb{N}^{+}
+  \end{aligned}
+\end{equation}
+
+至此, 我们总结如下:
+
+\begin{theorem}[I.R.R of SO(3) Lie Algerbra]
+  \color{black}
+  ${\rm SO}(3)$的李代数的每个不可约表示可由一个确定的的半整数本征值$j$确定, 相应表示下的正交基矢给出:
+  \begin{equation}
+    \begin{aligned}
+      &J^{2}\ket{j\,m} = j(j+1)\ket{j\,m}\\
+      &J_3\ket{j\,m} = m \ket{j\,m}\\
+      &J_{\pm}\ket{j\,m} = [j(j+1)-m(m\pm 1)]^{1 / 2}\ket{j\,m\pm 1}
+    \end{aligned}
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  (1)式和(2)式都是我们证明过的内容, 唯一需要讨论的是(3)式. 利用\ref{eq:j_pm_conj}和\ref{eq:j^2_expansion}:
+  \begin{equation}
+    \begin{aligned}
+      \bra{j\,m} J_{-}^{\dagger} J_{-} \ket{j\,m} = \bra{j\,m}J_{+}J_{-}\ket{j\,m} = [j(j+1)-m(m-1)]\bra{j\,m}\ket{j\,m}
+    \end{aligned}
+  \end{equation}
+  对于$J_{+}$ 同理.
+\end{proof}
+
+接下来我们来研究${\rm SO}(3)$ 群元的表示矩阵. 首先我们将
+欧拉角表示重新变回固定坐标系中:
+
+\begin{theorem}
+  对于用欧拉角表示的转动$R(\alpha, \beta, \gamma)$, 可以表示
+  为固定坐标系$(1,2,3)$ 下的转动:
+  \begin{equation}
+    \begin{aligned}
+      R(\alpha, \beta, \gamma) = R_3(\alpha)R_2(\beta)R_3(\gamma)
+    \end{aligned}
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  首先引入一个引理\mn{我并没有找到一个对此引理的值得复述的证明, 因此在此直接使用}:\\
+  \begin{lemma}
+    对于绕定轴$\vec{n}$ 的旋转$R_{\vec{n}}(\alpha)$以及
+    任意旋转 $R_1$, 有:
+    \begin{equation}
+      \begin{aligned}
+        R_{\vec{n'}}(\alpha) = R_1 R_{\vec{n}}(\alpha) R_1^{-1}
+      \end{aligned}
+    \end{equation}
+    其中$\vec{n'} = R_1 \vec{n}$.
+  \end{lemma}
+  现在考虑一个欧拉角描述下的旋转$R(\alpha, \beta, \gamma)$,
+  三次旋转轴分别为$3, 1',3''$, 利用引理4, 我们有:
+   \begin{equation}
+    \begin{aligned}
+      R(\alpha, \beta, \gamma) &= R_{3''}(\gamma) R_{1'}(\beta) R_{3}(\alpha)\\
+        &= R_{1'}(\beta)R_{3}(\alpha+\gamma)\\
+        &= R_{3}(\alpha)R_{1}(\beta)R_{3}(\gamma)
+    \end{aligned}
+  \end{equation}
+\end{proof}
+
+那么任意转动$R(\alpha, \beta, \gamma)$ 在$j$ 表示下的转动矩阵元为:
+\begin{equation}
+  \begin{aligned}
+    D^{j}(\alpha,\beta, \gamma)^{m'}_{m} &= \bra{j\,m'}e^{- {\rm i} \alpha J_3}e^{- {\rm i} \beta J_2}e^{- {\rm i} \gamma J_3} \ket{j\,m}\\
+    &= e^{- {\rm i} \alpha m'} \bra{j\,m'}e^{- {\rm i} \beta J_2} \ket{j\,m} e^{- {\rm i} \gamma m}
+  \end{aligned}
+\end{equation}
+可以看出, 转动矩阵的核心在于:
+\begin{equation}
+  \begin{aligned}
+    d^{j}(\beta)^{m'}_{m} = \bra{j\,m'}e^{- {\rm i} \beta J_2} \ket{j\,m}
+  \end{aligned}
+\end{equation}
