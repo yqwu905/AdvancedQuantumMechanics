@@ -127,6 +127,8 @@
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
+    postheadhook = {\hspace*{\parindent}},
+    postheadspace = \newline, 
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
@@ -136,6 +138,8 @@
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
+    postheadhook = {\hspace*{\parindent}},
+    postheadspace = \newline, 
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
@@ -145,6 +149,8 @@
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    postheadhook = {\hspace*{\parindent}},
+    postheadspace = \newline, 
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
@@ -154,6 +160,8 @@
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    postheadhook = {\hspace*{\parindent}},
+    postheadspace = \newline, 
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
@@ -163,6 +171,8 @@
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    postheadhook = {\hspace*{\parindent}},
+    postheadspace = \newline, 
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
@@ -195,6 +205,7 @@
 \declaretheorem[style=thmbluebox, numbered=no, name=Example]{eg}
 \declaretheorem[style=thmredbox, name=Proposition]{prop}
 \declaretheorem[style=thmredbox, name=Theorem]{theorem}
+\declaretheorem[style=thmredbox, name=Property]{property}
 \declaretheorem[style=thmredbox, name=Lemma]{lemma}
 \declaretheorem[style=thmredbox, numbered=no, name=Corollary]{corollary}
 
@@ -212,9 +223,11 @@
 \newtheorem*{previouslyseen}{As previously seen}
 \newtheorem*{problem}{Problem}
 \newtheorem*{observe}{Observe}
-\newtheorem*{property}{Property}
 \newtheorem*{intuition}{Intuition}
 
+\newcommand\Item[1][]{%
+  \ifx\relax#1\relax  \item \else \item[#1] \fi
+  \abovedisplayskip=0pt\abovedisplayshortskip=0pt~\vspace*{-\baselineskip}}
 
 \usepackage{etoolbox}
 \AtEndEnvironment{vb}{\null\hfill$\diamond$}%
