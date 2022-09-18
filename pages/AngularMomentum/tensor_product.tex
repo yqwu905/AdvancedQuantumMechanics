@@ -1,0 +1,83 @@
+\subsection{Tensor Product Space}
+
+现在我们考虑${\rm SO}(3)$ 的张量积表示, 给定两个不可约表示:
+$j_1,j_2$, 对应的张量积表示记作$j_1\otimes j_2$, 表示空间维度显然
+为$(2j_1+1)(2j_2+1)$.
+
+我们先将所有的单体算符简单延拓到张量积空间上:
+
+\begin{equation}
+  \begin{aligned}
+    &J_{1z} = j_{1z}\otimes I \\
+    &J_{2z} = I\otimes j_{2z}\\
+  \end{aligned}
+\end{equation}
+
+对于$J_1x,J_2x,J_1y,J_2y$ 也同理. 那么我们立刻注意到, $(J_1z, J_2z)$ 
+是张量积空间的一组CSCO.
+
+接下来考虑总角动量, 定义如下:
+
+\begin{equation}
+  \begin{aligned}
+    &J_{x} = j_{1x} + j_{2x}\\
+    &J_{y} = j_{1y} + j_{2y}\\
+    &J_{z} = j_{1z} + j_{2z}\\
+    &J^{2} = J_{x}^{2} + J_{y}^{2} + J_{z}^{2}
+  \end{aligned}
+\end{equation}
+
+不难证明, $(J^{2}, J_{z})$ 也是一组CSCO.
+
+那么, 张量积空间中就存在着两种表象: 一种对应于$(j_{1z}, j_{2z})$,
+称为\emph{非耦合表象}, 基矢记作$\ket{j_1\,m_1;j_2\,m_2}$; 另一种
+对应于$(J^{2}, J_{z})$, 称为\emph{耦合表象}, 基矢记作$\ket{J\,M}$.
+
+现在我们来考虑两种表象之间的联系:
+
+\begin{property}
+  非耦合表象是非简并的, 而耦合表象是简并的, 任意基矢$\ket{J\,M}$
+  对应的简并度为能使得$m_1+m_2=M$ 的全部组合数. 一个例子可见图\ref{fig:angular_momentum_addition_1}
+\end{property}
+
+\begin{figure}[ht]
+  \centering
+  \incfig{angular_momentum_addition_1}
+  \caption{$j_1= \frac{3}{2}$和$j_2=2$ 的简并度}
+  \label{fig:angular_momentum_addition_1}
+\end{figure}
+
+而更一般的联系可以通过利用基矢的完全性关系进行分解得到:
+
+\begin{equation}
+  \begin{aligned}
+    \ket{J\,M} = \sum_{m_1,m_2}\ket{j_1\,m_1;j_2\,m_2}\bra{j_1\,m_1;j_2\,m_2}\ket{J\,M}
+  \end{aligned}
+\end{equation}
+
+其中, 从耦合表象分解到非耦合表象的系数$\bra{j_1\,m_1;j_2\,m_2}\ket{J\,M}$ 称为
+CG系数(Clebsch-Gordan).
+
+CG系数的计算原理上并不复杂, 这里仅作概述不展开(毕竟有表可查):
+
+\begin{enumerate}
+  \item 首先, 最简单的情况是$M=m_1+m_2=j_1+j_2$ 的情况, CG系数等于1:
+    \begin{equation}
+      \begin{aligned}
+        \bra{j_1\,j_1;j_2\,j_2}\ket{j_1+j_1\,j_1+j_2} = 1
+      \end{aligned}
+    \end{equation}
+  \item 将$M$ 的降阶算符$J_{-} = j_{1-}\otimes I + I\otimes j_{2-}$ 
+    作用到上式, 可以得到
+    \begin{equation}
+      \begin{aligned}
+        & \bra{j_1\,j_1;j_2\,j_2-1}\ket{j_1+j_2\,j_1+j_1-1}\\
+        & \bra{j_1\,j_1-1;j_2\,j_2}\ket{j_1+j_2\,j_1+j_2}
+      \end{aligned}
+    \end{equation}
+    的值.
+  \item 循环利用降阶算符, 即可求得所有$J=j_1+j_2$ 的CG系数.
+  \item 对于$J\neq j_1+j_2$ 的情况, $M=m_1+m_2$ 一定成立, 不难
+    看出其仍然会分解到和$\ket{J\,M}$ 相同的一组非耦合基上,
+    利用正交性$\bra{J_1,M}\ket{J,M}=0$, 就能求出各系数.
+\end{enumerate}

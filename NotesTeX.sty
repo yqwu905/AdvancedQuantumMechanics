@@ -77,6 +77,7 @@
 \usepackage{graphicx,wrapfig,float,caption}         % Figure Presets
 \usepackage{setspace,multicol}                      % Text Presets
 \usepackage{tikz,physics}                           % Physics Presets
+\usepackage{import,xifthen,pdfpages,transparent}
 
 
 % ----------------------------------------------------------------------
@@ -250,6 +251,10 @@
 %           User Macros: Add Below 
 % ----------------------------------------------------------------------
 
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
 
 %===========================================================================================================
 

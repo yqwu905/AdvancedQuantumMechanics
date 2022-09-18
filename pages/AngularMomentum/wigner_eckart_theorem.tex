@@ -1,0 +1,52 @@
+\subsection{Wigenr-Eckart Theorem}
+
+对于给定本征态$\ket{j\,m},m=j,j-1,\cdots,-j$, 对于任意$g\in G$,
+总有:
+
+\begin{equation}
+  \begin{aligned}
+    U(g)\ket{j\,m} = D^{j}_{m'm}(g) \ket{j\,m'}, \quad \forall g\in G
+  \end{aligned}
+\end{equation}
+
+由于$D^{j}_{m'm}(g)$ 是不可约表示, 由$\ket{j,m}$ 张成的$2j+1$ 
+维的空间也是转动下的不变子空间. 而$\ket{j,m}$ 成为表示$j$ 的
+不可约基矢.
+
+同样的, 对于算符, 也可以类似的定义:
+
+\begin{equation}
+  \begin{aligned}
+    U(g)T^{k}_{q}U(g)^{-1} = \sum_{q'}T^{k}_{q'}D^{k}_{q'q}(g), \quad \forall g\in G
+  \end{aligned}
+\end{equation}
+
+这样的一组算符$T^{k}_{q}$ 称为表示$k$ 的不可约张量算符.
+
+\begin{remark}
+  对于我们要讨论的${\rm SO}(3)$ 群, 上述定义可以进一步称为
+  不可约球张量算符.
+\end{remark}
+
+进一步的, 在${\rm SO}(3)$ 群的条件下, 不难证明:
+
+\begin{equation}
+  \begin{aligned}
+    &[J_{z}, T^{q}_{k}] = q T^{k}_{q}\\
+    &[J_{\pm}, T^{k}_{q}] = \sqrt{k(k+1) - q(q\pm 1)} T^{k}_{q\pm 1}
+  \end{aligned}
+\end{equation}
+
+不可约张量的重要性质就是本章的重点Wigner-Eckart定理:
+
+\begin{theorem}[Wigner-Eckart Theorem]
+  \begin{equation}
+    \begin{aligned}
+      \bra{\alpha';j'\,m'}T^{k}_{q}\ket{\alpha;j\,m} = \bra{j\,m;k\,q}\ket{j'\,m'}\frac{1}{\sqrt{2j+1}}\bra{\alpha';j'}T^{k}\ket{\alpha;j}
+    \end{aligned}
+  \end{equation}
+\end{theorem}
+
+这一定理的重要性在于可以让我们将磁量子数分离出来, 同时利用CG系数
+来选择合法的情况, 同时对于$\alpha=\alpha', j=j'$ 时, 跃迁概率
+直接等于CG系数之比.

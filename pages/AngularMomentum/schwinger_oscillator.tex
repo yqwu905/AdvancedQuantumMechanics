@@ -1,0 +1,42 @@
+\subsection{Schwinger Oscillator}
+
+Schwinger振子模型的数学本质是简单的, 那就是对于一个Hilbert
+空间中的态矢量的一个表象, 对于任意矢量, 我们将其在各个基矢
+上的投影看作是一堆无耦合的粒子数. 那么对于任意算符$M$, 在该表象
+下有矩阵元 $M_{ij}$, 那么不难看出, 算符可以写成如下形式:
+
+\begin{equation}
+  \begin{aligned}
+    M = M_{ij}a^{\dagger}_{i}a_{j}
+  \end{aligned}
+\end{equation}
+
+其中$a_{i},a_{i}^{\dagger}$ 分别为玻色子$i$ 的湮灭和产生算符.
+满足湮灭和产生算符的基本对易关系:
+
+\begin{equation}
+  \begin{aligned}
+    &[a_{i}, a^{\dagger}_{}] = \delta_{ij}\\
+    &[a_{i}, a_{j}] = [a^{\dagger}_{i}, a_{j}^{\dagger}] = 0
+  \end{aligned}
+\end{equation}
+
+作为最重要的应用, 对于角动量来说, 以$\frac{1}{2}$ 自旋系统为例,
+有:
+
+\begin{equation}
+  \begin{aligned}
+    J_{z} = \frac{\hbar}{2}\sum_{ij}a^{\dagger}_{i} \sigma_{ij} a_{j} = \frac{\hbar}{2}(a_1^{\dagger}a_1-a_2^{\dagger}a_2) = \frac{\hbar}{2}(N_1-N_2)
+  \end{aligned}
+\end{equation}
+
+相应的, 其他算符也不难写出, 并可验证他们的对易关系与角动量相同.
+
+\begin{remark}
+  这样的做法有什么意义吗? 毕竟只是构建了一种简单的同构. 我的理解是
+  除了给出了一种粒子化的解释, 还有两个原因:
+  \begin{enumerate}
+    \item 角动量本征值之间相差$1$ 的性质与产生湮灭算符有一种自然的相似性.
+    \item 这样的同构使得更高角动量容易扩展: 只需要添加更多的粒子进去(存疑).
+  \end{enumerate}
+\end{remark}
