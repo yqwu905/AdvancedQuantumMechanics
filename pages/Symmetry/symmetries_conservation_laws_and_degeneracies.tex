@@ -1,0 +1,115 @@
+\subsection{Symmetries, Conservation Laws and Degeneracies}
+
+先回忆经典情况下的对称性与守恒律. 对于给定的一个拉格朗日量$\mathcal{H}$, 若其
+在如下无穷小变换下不变:
+
+\begin{equation}
+  \begin{aligned}
+    q_{i} \to q_{i} + \delta q_{i}
+  \end{aligned}
+\end{equation}
+
+即意味着:
+
+\begin{equation}
+  \begin{aligned}
+    \pdv{\mathcal{L}}{q_{i}} = 0
+  \end{aligned}
+\end{equation}
+
+我们可以立刻推断出, 其对应的正则动量$p_{i}$ 守恒:
+
+\begin{equation}
+  \begin{aligned}
+    \dv{p_{i}}{t} = 0
+  \end{aligned}
+\end{equation}
+
+现在我们考虑量子的情况. 在QM中, 我们总是将一个变换和一个幺正算符联系起来.
+这里我们记作$\mathscr{S}$, 以强调它和对称性的联系.
+
+对于一个无穷小变换$\mathscr{S}$, 我们总可以将其写成由一个厄密算符$G$生成的形式:
+
+\begin{equation}
+  \begin{aligned}
+    \mathscr{S} = 1 - \frac{{\rm i} \epsilon}{\hbar} G
+  \end{aligned}
+\end{equation}
+
+如果体系的哈密顿量$\mathcal{H}$ 在此变换下保持不变:
+
+\begin{equation} \label{eq:symmetry_condition_for_hamiltonian}
+  \begin{aligned}
+    \mathscr{S}^{\dagger} \mathcal{H} \mathscr{S} = \mathcal{H}
+  \end{aligned}
+\end{equation}
+
+我们可以立刻推出:
+
+\begin{equation}
+  \begin{aligned}
+    [G,\mathcal{H}] = 0
+  \end{aligned}
+\end{equation}
+
+而利用海森堡绘景下的运动方程:
+
+\begin{equation}
+  \begin{aligned}
+    {\rm i} \hbar \pdv{}{t} A^{H} (t) = -[\mathcal{H}^{H}, A^{H}(t)]
+  \end{aligned}
+\end{equation}
+
+可以得知$G$ 是一个守恒量.
+
+而在薛定谔绘景中, 我们可以立刻注意到时间演化算符$U(t,t_0)$
+也与$G$ 对易:
+
+\begin{equation}
+  \begin{aligned}
+    [U(t,t_0), G] = 0
+  \end{aligned}
+\end{equation}
+
+这意味着, 对于$G$ 的一个本征态, 其演化后的态仍然是$G$ 相同本征值的本征态.
+
+对式\ref{eq:symmetry_condition_for_hamiltonian}做简单变形, 就可以得知 $[H, 
+\mathscr{S}] = 0$. 于是我们可以得到类似推论: 对于$\mathcal{\mathcal{H}}$ 
+的一个本征态, 其在$\mathscr{S}$ 作用后的态也是$\mathcal{H}$ 的一个具有相
+同本征值的本征态.
+
+\begin{eg}[SO(3)对称性]
+  假设一个体系满足${\rm SO}(3)$ 对称性:
+  
+  \begin{equation}
+    \begin{aligned}
+      [\mathcal{D}(R), \mathcal{H}] = 0
+    \end{aligned}
+  \end{equation}
+
+  其生成元满足:
+
+  \begin{equation}
+    \begin{aligned}
+      [{\bf J}, H] = 0,\; [{\bf J}^{2}, H] = 0
+    \end{aligned}
+  \end{equation}
+
+  则取$\mathcal{H}$, $J_{z}$, ${\bf J}^{2}$ 为CSCO, 将基矢
+  记作 $\ket{n;j,m}$, 我们有:
+
+  \begin{equation}
+    \begin{aligned}
+      \mathcal{D}(R) \ket{n;j,m} = \sum_{m'}\ket{n;j,m'} \mathcal{D}^{(j)}_{mm'}(R)
+    \end{aligned}
+  \end{equation}
+
+  考虑到对于任意$R$, $\mathcal{D}(R)\ket{n;j,m}$ 都是和
+  $\ket{n;j,m}$ 具有相同能量本征值的本征态, 则唯一的可能是
+  对于任意$m'$, $\ket{n;j,m}$ 都具有相同的能量本征值. 即
+  存在$2j+1$ 重简并.
+
+  这一结论也可以从$[ {\bf J}, H] = 0$ 出发, 可以得出$[J_{\pm}, H] = 0$,
+  则任意能量本征态在$J_{\pm}$ 作用后仍然是具有相同本征值的
+  能量本征态. 因此简并数就是可能的$m$ 取值.
+\end{eg}

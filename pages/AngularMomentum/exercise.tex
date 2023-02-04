@@ -1,0 +1,103 @@
+\subsection{Exercise}
+
+\begin{exercise}[3.13]
+  \begin{equation}
+    \begin{aligned}
+      D_{y}(\epsilon) = \exp(- {\rm i} J_{y} \epsilon / \hbar)
+    \end{aligned}
+  \end{equation}
+
+  \begin{equation}
+    \begin{aligned}
+      J_{y} = \frac{1}{2 {\rm i}} (J_{+} - J_{-})
+    \end{aligned}
+  \end{equation}
+
+\end{exercise}
+
+\begin{exercise}[3.15]
+  \begin{equation}
+    \begin{aligned}
+      J_{+}J_{-} & = (J_{x} + {\rm i} J_{y})(J_{x} - {\rm i} J_{y})\\
+                 & = J_{x}^{2} + J_{y}^{2}
+    \end{aligned}
+  \end{equation}
+
+  \begin{equation}
+    \begin{aligned}
+      |c_{-}|^{2} = \bra{j,m}J_{-}^{\dagger} J_{-} \ket{j,m}
+    \end{aligned}
+  \end{equation}
+\end{exercise}
+
+\begin{exercise}[3.20]
+  利用(3.6.52)式:
+  \begin{equation}
+    \begin{aligned}
+      D^{(l)}_{m 0}(\alpha=0,\beta,\gamma=0) = \sqrt{\frac{4 \pi}{5}}Y^{m*}_{2}(\beta,0)
+    \end{aligned}
+  \end{equation}
+  
+  为旋转后态在$\ket{2,m}$ 下的展开, 由此分别取$m=0,\pm 1,\pm 2$,即可求出结果.
+
+\end{exercise}
+
+\begin{exercise}[3.21]
+  \begin{enumerate}[(a)]
+    \item 注意到对于谐振子, 我们有:
+      \begin{equation}
+        \begin{aligned}
+          & x_{i} = \sqrt{\frac{\hbar}{2m \omega}} (a_{i} + a_{i}^{\dagger}) \\
+          & p_{i} = {\rm i}\sqrt{\frac{\hbar m \omega}{2}} (a^{\dagger}_{i} - a_{i})
+        \end{aligned}
+      \end{equation}
+  \end{enumerate}
+  则角动量为:
+  \begin{equation}
+    \begin{aligned}
+      L_{i} &= \epsilon_{ijk}x_{j}p_{k} \\
+            &= \frac{{\rm i} \hbar}{2}\epsilon_{ijk}(a_{j}+a_{j}^{\dagger})(a_{k}^{\dagger}-a_{k})
+    \end{aligned}
+  \end{equation}
+  注意到$[a_{j},a_{k}] = [a_{j}^{\dagger}, a_{k}^{\dagger}] = 0$, 同时将上式的求和
+  展开, 可以发现$a_{j}a_{k}$ 和$a_{j}^{\dagger}a_{k}^{\dagger}$ 项
+  在求和中消失了, 而$a_{j}a_{k}^{\dagger}$ 和$a_{k}a_{j}^{\dagger}$ 项相同,
+  上式给出:
+  \begin{equation}
+    \begin{aligned}
+      L_{i} = {\rm i} \hbar \epsilon_{ijk} a_{j}a_{k}^{\dagger}
+    \end{aligned}
+  \end{equation}
+  对于$L^{2}$, 先求$L_{i}^{2}$ :
+  \begin{equation}
+    \begin{aligned}
+      L_{i}^{2} &= - \hbar \epsilon_{ijk} \epsilon_{imn} a_{j}a_{k}^{\dagger} a_{m}a_{n}^{\dagger} \\
+      &= \hbar (\delta_{jn}\delta_{km} - \delta_{jm}\delta_{kn})a_{j}a_{k}^{\dagger} a_{m}a_{n}^{\dagger} \\
+      &= \hbar [(a_{j}^{\dagger} a_{j} + 1) a_{m}^{\dagger} + a_{m} - a_{j}a_{j} a_{k}^{\dagger}a_{k}^{\dagger}]
+    \end{aligned}
+  \end{equation}
+  即:\mn{上式中没有使用Einstein求和约定, 下式使用了.}
+  \begin{equation}
+    \begin{aligned}
+      L^{2} = \hbar^{2}[N(N+1) - a_{k}^{\dagger}a_{k}^{\dagger}a_{j}a_{j}]
+    \end{aligned}
+  \end{equation}
+
+  \item 从$\bra{n_{x}, n_{y}, n_{z}}L_{z}\ket{qlm}$出发,一方面
+    利用$L_{z}\ket{qlm} = m \ket{qlm}$, 另一方面将其展开成
+    产生和湮灭算符作用在左矢上. 即可得出结论.
+\end{exercise}
+
+\begin{exercise}[3.23]
+  注意到$n_{+} = j+m$, $n_{-} = j-m$, 而$K_{+}$ 会同时增加$n_{+}$ 
+  和$n_{-}$, 因此$K_{+}$ 会保持$m$ 不变, 使$j$ 增大$1$.
+  同理$K_{-}$ 使$j$ 减小$1$, 同时保持$m$ 不变.
+
+  非零矩阵元分别为:
+  \begin{equation}
+    \begin{aligned}
+      &\bra{j'\;m'}K_{+}\ket{j\;m} = \sqrt{(j+m+1)(j-m+1)}\delta_{j'\;j+1}\delta_{m'\;m}\\
+      &\bra{j'\;m'}K_{-}\ket{j\;m} = \sqrt{(j+m)(j-m)}\delta_{j'\;j-1}\delta_{m'\;m}
+    \end{aligned}
+  \end{equation}
+\end{exercise}
